@@ -61,7 +61,8 @@ form {
 
 .signup-pg-background{
   background-color:whitesmoke;
-  background-image: url(../images/aquaradiance_1024x768.jpg);
+  /*background-image: url(../images/aquaradiance_1024x768.jpg);*/
+  background-image: url(../images/blueprint_1600x1200.jpg);
   background-size: cover;
   /*background-color:whitesmoke;
   background-image: url(../images/light-blue-0.svg);
