@@ -5,7 +5,7 @@
 <body>
   <div id="indexpg-form-wrapper">
     <form class="formClass" action="login_handler.php" method="post">
-      <h2 class="formTitle">Log In</h1>
+      <h2 class="formTitle">Log In</h2>
         <?php
         if(isset($_SESSION["email_error"])) {
           echo "<div id='error_msg'>" . $_SESSION["email_error"] . "</div>";

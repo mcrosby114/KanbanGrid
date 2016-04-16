@@ -5,7 +5,7 @@
   if(!isset($_SESSION)) session_start();
 ?>
 
-<body class="form-pg-background">
+<body class="login-pg-background">
     <div id="form-wrapper">
         <form class="formClass" action="login_handler.php" method="post">
 

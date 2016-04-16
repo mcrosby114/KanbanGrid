@@ -44,14 +44,26 @@ form {
   border-color:lightgrey;
 }
 
-.form-pg-background{
+.login-pg-background{
   /*background-color:whitesmoke;
   background: url(../images/aquaradiance_1024x768.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;*/
+  background-size: cover;
+  background-color:whitesmoke;*/
+  background-image: url(../images/light-blue-0.svg);
+  /*background-image: url(../images/light-blue-4.jpg);*/
+  /*background-image: url(../images/light-orange.png);*/
+  /*background-image: url(../images/orange-abstract.jpg);*/
+  background-size:cover;
+}
+
+.signup-pg-background{
   background-color:whitesmoke;
+  background-image: url(../images/aquaradiance_1024x768.jpg);
+  background-size: cover;
+  /*background-color:whitesmoke;
   background-image: url(../images/light-blue-0.svg);
   /*background-image: url(../images/light-blue-4.jpg);*/
   /*background-image: url(../images/light-orange.png);*/
@@ -62,6 +74,11 @@ form {
 .formTitle{
   text-align:center;
   font-weight:500;
+}
+
+h2.formTitle{
+  margin-bottom: 0px;
+  margin-top:10px;
 }
 
 #error_msg{
