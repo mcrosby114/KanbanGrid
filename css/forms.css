@@ -6,20 +6,10 @@
 
 #form-wrapper{
   margin: 0 auto 0 auto;
-  /*min-width:100%;*/
   align-content:center;
   max-width:440px!important;
   min-height:100%;
   padding-top:60px;
-  /*padding-bottom:50%;*/
-  /*display:inline-block;*/
-}
-
-#indexpg-form-wrapper{
-  margin: 10px 10px 30px 50px;
-  float:right;
-  max-width:350px!important;
-  /*box-shadow:0 0 15px rgba(0,0,0,0.3);*/
 }
 
 input[type="password"].indexpg-form{
@@ -115,31 +105,37 @@ h2.formTitle{
   color:#b94a48;
   background-color:#f2dede;
   border-style:solid;
-  border-color:#ffffff;
+  border-color:#b22222;
+  border-width:thin;
   border-radius:4px;
   padding:5px;
   margin-bottom:10px;
 }
 
+input[type="text"].redHighlight{
+  color:#b94a48;
+  border-style:solid;
+  border-color:#b22222;
+  border-width:thin;
+  border-radius:4px;
+}
+
+input[type="password"].redHighlight{
+  color:#b94a48;
+  border-style:solid;
+  border-color:#b22222;
+  border-width:thin;
+  border-radius:4px;
+}
+
 label.labelTitle{
-  font-weight:500;
+  font-weight:600;
   font-size:18px;
-  color:#212121;
+  color:#555555;
 }
 
 input{
   font-weight:600;
-}
-
-#floatSignup{
-  float:right;
-  /*background-color:#FFF8DC;*/
-  padding: 20px 20px 70px 20px;
-  margin: 3px 3px 3px 3px;
-  border-style: outset;
-  border-color: lightsteelblue;
-  border-radius: 9px;
-  border-width:thin;
 }
 
 input[type="text"],
@@ -213,25 +209,5 @@ label.light {
   font-weight: 300;
   display: inline;
 }
-
-.number {
-  background-color: dodgerblue;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-  font-size: 0.8em;
-  margin-right: 4px;
-  line-height: 30px;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-  border-radius: 100%;
-}
-
-/*@media screen and (min-width: 480px) {
-
-  form {
-    max-width: 480px;
-  }*/
 
 }

@@ -12,31 +12,40 @@
 
           <h1 class="formTitle">Log In</h1>
 
+          <?php $emailHighlight = ""; ?>
+          <?php $passwordHighlight = ""; ?>
+
           <?php
+            if(isset($_SESSION["login_error"])) {
+              echo "<div id='error_msg'>" . $_SESSION["login_error"] . "</div>";
+              unset($_SESSION["login_error"]);
+            }
             if(isset($_SESSION["email_error"])) {
               echo "<div id='error_msg'>" . $_SESSION["email_error"] . "</div>";
+              $emailHighlight = "redHighlight";
               unset($_SESSION["email_error"]);
             }
             if(isset($_SESSION["password_error"])) {
               echo "<div id='error_msg'>" . $_SESSION["password_error"] . "</div>";
+              $passwordHighlight = "redHighlight";
               unset($_SESSION["password_error"]);
             }
           ?>
 
           <fieldset>
             <label class="labelTitle" for="email">Email:</label>
-            <input type="text" id="email" name="user_email" placeholder="example@example.com"
+            <input type="text" id="email" name="user_email" class="<?= $emailHighlight; ?>" placeholder="example@example.com"
             value="<?php
               if(isset($_SESSION["email"]))
                 echo $_SESSION["email"];
             ?>">
 
             <label class="labelTitle" for="password">Password:</label>
-            <input type="password" id="password" name="user_password">
+            <input type="password" id="password" class="<?= $passwordHighlight; ?>" name="user_password">
 
           </fieldset>
 
-          <button type="submit" name="LogIn_Pressed">Log In</button>
+          <button type="submit" name="Button_Pressed">Log In</button>
 
         </form>
     </div>

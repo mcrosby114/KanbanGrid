@@ -4,7 +4,6 @@
 
 
   <body>
-    <!-- <div id="indexpg-form-wrapper"> -->
       <form class="smallForm" action="login_handler.php" method="post">
         <h2 class="formTitle">Log In</h2>
           <?php
@@ -29,7 +28,6 @@
           </fieldset>
           <button type="submit" name="LogIn_Pressed">Log In</button>
         </form>
-      <!-- </div> -->
 
       <div class="bodysection" id="sec1">
         <h2>SECTION 1 Intro Text, Img, Signup Form</h2>

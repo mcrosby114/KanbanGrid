@@ -9,7 +9,7 @@
     return $data;
   }
 
-  if (isset($_POST["LogIn_Pressed"])) {
+  if (isset($_POST["Button_Pressed"])) {
 
     if(empty($_POST["user_email"])) {
       $_SESSION["email"] = null;
@@ -21,6 +21,7 @@
 
       if(!preg_match("/^.+@.+$/", $email_entry)) {
         $_SESSION["email_error"] = "Invalid email syntax.";
+        $_SESSION["email"] = $email_entry;
         header("Location:login.php");
       }
       else {
@@ -47,7 +48,7 @@
       // $status = $dao->validateLogin($email_entry,$password_entry);
 
       if ($status===FALSE) {
-        $_SESSION["email_error"] = "Invalid combination of email and password.";
+        $_SESSION["login_error"] = "Invalid combination of email and password.";
         header("Location:login.php");
       }
       else {

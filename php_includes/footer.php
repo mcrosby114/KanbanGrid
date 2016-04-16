@@ -1,4 +1,4 @@
-<footer>
+<footer <?php if ($thisPage == 'Log In' || $thisPage == 'Sign Up') { echo " class=\"formPage\" "; } ?>>
   <!-- <p>&copy;<?php echo date("Y"); ?> Matthew Crosby, all rights reserved.</p> -->
     <ul>
       <li>&copy;<?php echo date("Y"); ?> Matthew Crosby &nbsp&nbsp</li>

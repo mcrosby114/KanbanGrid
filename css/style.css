@@ -4,15 +4,16 @@ html {
   -webkit-font-smoothing: antialiased;
   min-height:100%;
 	position:relative;
-	display:block;
 	margin: 0 8px 8px 8px;
+	bottom: 8px;
 }
 
 body {
-	/*display:inline-block;*/
+	display:inline-block;
 	min-width:100%;
 	min-height:100%;
-  padding: 60px 0 50px 0;
+  padding: 70px 0 0 0;
+	margin: 0 8px 0 0;
   color: #545454;
   background-color: #ffffff;
   font-size: 16px;
@@ -143,12 +144,17 @@ footer{
   background-color:darkgoldenrod;
   color:aliceblue;
   font-weight:700;
-  position:absolute;
+	display:inline-block;
+	margin-top:50px;
   bottom:0px;
 	right:0px;
 	left:0px;
   width:100%;
 	z-index:1;
+}
+
+footer.formPage{
+	position:absolute;
 }
 
 footer > ul{
