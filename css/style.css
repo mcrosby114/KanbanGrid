@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	display:inline-block;
+	/*display:inline-block;*/
 	min-width:100%;
 	min-height:100%;
   padding: 60px 0 50px 0;
@@ -31,14 +31,7 @@ body {
 
 .bodysection{
   margin: 33px 170px 0em 170px;
-}
-
-#sec1{
-	/*min-width:1000px!important;*/
-}
-
-#testimg{
-  background-size:cover;
+	display:block;
 }
 
 h1{
@@ -111,7 +104,6 @@ li{
 
 #homeclick{
   color:gold;
-  /*background-color:#005b96;*/
   box-shadow: 12px 4px 30px rgba(0, 0, 0, 0.35);
   border-right-style:inset;
   border-right-color:#03396c;
@@ -124,7 +116,6 @@ li{
   background-color:#005b96;
   box-shadow: 8px 1px 7px rgba(0, 0, 0, 0.3);
   border-bottom-style:solid;
-  /*border-bottom-width:thin;*/
 }
 
 a{
@@ -152,13 +143,12 @@ footer{
   background-color:darkgoldenrod;
   color:aliceblue;
   font-weight:700;
-  /*margin: 0 0 4px 0;*/
-  /*padding: 0 0 0 0;*/
   position:absolute;
   bottom:0px;
 	right:0px;
 	left:0px;
-  /*width:100%;*/
+  width:100%;
+	z-index:1;
 }
 
 footer > ul{
