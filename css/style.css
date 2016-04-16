@@ -1,27 +1,24 @@
 html {
   background-color: #e6e9e9;
-  background-image: -webkit-linear-gradient(270deg,rgb(230,233,233) 0%,rgb(216,221,221) 100%);
   background-image: linear-gradient(270deg,rgb(230,233,233) 0%,rgb(216,221,221) 100%);
   -webkit-font-smoothing: antialiased;
   min-height:100%;
-  /*min-width:100%;*/
+	position:relative;
+	display:block;
+	margin: 0 8px 8px 8px;
 }
 
 body {
-  /*min-height:100%;*/
-  /*height:100%;*/
-  /*width:inherit;*/
-  /*display:inline-block;*/
-  position: relative;
-  top: 60px;
-  padding: 1px 0 0 0;
+	display:inline-block;
+	min-width:100%;
+	min-height:100%;
+  padding: 60px 0 50px 0;
   color: #545454;
   background-color: #ffffff;
   font-size: 16px;
   line-height: 1.5em;
   box-shadow: 10px 10px rgba(0, 0, 0, 0.06);
   font-family: 'Noto Sans', sans-serif;
-  /*display:inline-block;*/
   /*font-family: 'Maven Pro', sans-serif;*/
   /*font-family: 'Oxygen', sans-serif;*/
   /*font-family: 'Source Sans Pro', sans-serif;*/
@@ -64,6 +61,7 @@ nav{
   min-width:50em;
   width:100%;
   overflow:hidden;
+	z-index:1;
 }
 
 a.banner-logo-container {
@@ -154,11 +152,13 @@ footer{
   background-color:darkgoldenrod;
   color:aliceblue;
   font-weight:700;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  position:relative;
+  /*margin: 0 0 4px 0;*/
+  /*padding: 0 0 0 0;*/
+  position:absolute;
   bottom:0px;
-  width:100%;
+	right:0px;
+	left:0px;
+  /*width:100%;*/
 }
 
 footer > ul{

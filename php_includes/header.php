@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>KanbanGrid - <?= $thisPage; ?></title>
+  <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css"/>
   <link rel="stylesheet" href="css/forms.css" type="text/css"/>
   <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>

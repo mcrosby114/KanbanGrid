@@ -6,9 +6,10 @@
 ?>
 
 
-<body class="signup-pg-background">
+<body>
+  <div class="signup-pg-background">
     <div id="form-wrapper">
-        <form class="formClass" action="login_handler.php" method="post">
+        <form class="centerForm" action="login_handler.php" method="post">
 
           <h1 class="formTitle">Sign Up</h1>
 
@@ -40,6 +41,7 @@
 
         </form>
     </div>
+  </div>
 </body>
 
 <?php require_once("php_includes/footer.php"); ?>

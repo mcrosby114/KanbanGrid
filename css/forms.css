@@ -11,7 +11,7 @@
   max-width:440px!important;
   min-height:100%;
   padding-top:60px;
-  padding-bottom:50%;
+  /*padding-bottom:50%;*/
   /*display:inline-block;*/
 }
 
@@ -19,6 +19,7 @@
   margin: 10px 10px 30px 50px;
   float:right;
   max-width:350px!important;
+  /*box-shadow:0 0 15px rgba(0,0,0,0.3);*/
 }
 
 input[type="password"].indexpg-form{
@@ -33,7 +34,7 @@ fieldset.indexpg-form{
   margin-bottom: 5px;
 }
 
-form {
+form.centerForm {
   font-weight:600;
   display:block;
   padding: 10px 20px;
@@ -42,6 +43,22 @@ form {
   border-style:solid;
   border-width:thin;
   border-color:lightgrey;
+  box-shadow:7px 7px 55px rgba(0,0,0,0.55);
+}
+
+form.smallForm{
+  margin: 10px 10px 30px 50px;
+  float:right;
+  max-width:350px!important;
+  font-weight:500;
+  display:block;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+  border-style:solid;
+  border-width:thin;
+  border-color:lightgrey;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
 }
 
 .login-pg-background{
@@ -57,12 +74,17 @@ form {
   /*background-image: url(../images/light-orange.png);*/
   /*background-image: url(../images/orange-abstract.jpg);*/
   background-size:cover;
+  position:absolute;
+  top:60px;
+  bottom:0px;
+  left:0px;
+  right:0px;
 }
 
 .signup-pg-background{
   background-color:whitesmoke;
-  /*background-image: url(../images/aquaradiance_1024x768.jpg);*/
-  background-image: url(../images/blueprint_1600x1200.jpg);
+  background-image: url(../images/aquaradiance_1024x768.jpg);
+  /*background-image: url(../images/blueprint_1600x1200.jpg);*/
   background-size: cover;
   /*background-color:whitesmoke;
   background-image: url(../images/light-blue-0.svg);
@@ -70,6 +92,11 @@ form {
   /*background-image: url(../images/light-orange.png);*/
   /*background-image: url(../images/orange-abstract.jpg);*/
   background-size:cover;
+  position:absolute;
+  top:60px;
+  bottom:0px;
+  left:0px;
+  right:0px;
 }
 
 .formTitle{

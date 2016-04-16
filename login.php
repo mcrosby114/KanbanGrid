@@ -5,9 +5,10 @@
   if(!isset($_SESSION)) session_start();
 ?>
 
-<body class="login-pg-background">
+<body>
+  <div class="login-pg-background">
     <div id="form-wrapper">
-        <form class="formClass" action="login_handler.php" method="post">
+        <form class="centerForm" action="login_handler.php" method="post">
 
           <h1 class="formTitle">Log In</h1>
 
@@ -39,6 +40,7 @@
 
         </form>
     </div>
+  </div>
 </body>
 
 
