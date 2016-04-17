@@ -35,6 +35,32 @@ body {
 	display:block;
 }
 
+#signup-success{
+	padding-top:100px;
+	text-align:center;
+	font-size:30px;
+	font-weight:500;
+	color:rgba(0,0,0,.9);
+	background-color:#dadada;
+	text-shadow:rgba(0,0,0,.2) 2px 6px 5px,rgba(255,255,255,.4) 0 -4px 30px;
+}
+
+.success-pg-background{
+	background-image: url(../images/light-blue-0.svg);
+	/*background-image: url(../images/light-blue-4.jpg);*/
+	/*background-image: url(../images/light-orange.png);*/
+	/*background-image: url(../images/orange-abstract.jpg);*/
+	/*background-image: url(../images/light-blue-2.jpg);*/
+	/*background-color:whitesmoke;*/
+	/*background-color:#d5d5d5;*/
+	background-size:cover;
+	position:absolute;
+	top:60px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+}
+
 h1{
   color:#212121;
 }
@@ -137,6 +163,25 @@ a:visited{
 
 a:hover{
   color:gold;
+  background-color:#005b96;
+}
+
+a.default-link:link{
+	color:blue;
+	font-size:18px;
+	font-weight:600;
+	text-decoration:underline;
+}
+
+a.default-link:visited{
+	color:indigo;
+	font-size:18px;
+	font-weight:500;
+	text-decoration:underline;
+}
+
+a.default-link:hover{
+	color:gold!important;
   background-color:#005b96;
 }
 

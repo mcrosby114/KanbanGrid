@@ -55,20 +55,16 @@
     }
   }
 
+  #If input is valid so far, attempt to create new user in database
   if($namePresent && $emailPresent && $passwordPresent) {
     try {
-
-      $status=false;
-      // $dao = new Dao();
-      // $status = $dao->validateCreds($email_entry,$password_entry);
-
-      if ($status===FALSE) {
-        $_SESSION["email_error"] = "Invalid combination of email and password.";
+      $dao = new Dao();
+      if ($dao->emailExists($email)){
+        $_SESSION["email_error"] = "Error: this email address is alreay in use.";
         header("Location:signup.php");
-      }
-      else {
-        $_SESSION["logged_in"] = true;
-        header("Location:grid.php");
+      } else {
+        $dao->createUser($username, $email, $password);
+        header("Location:signup_success.php");
       }
     } catch(Exception $e) {
         var_dump($e);

@@ -4,58 +4,41 @@
 -- mysql -u USERNAME -p
 
 -- to execute this .sql file, type the following:
--- mysql -D <kanbangrid> -u USERNAME -p < <mcrosby.sql>
+-- mysql -D <mcrosby> -u USERNAME -p < <mcrosby.sql>
 
 
-DROP DATABASE IF EXISTS Kanbangrid;
-CREATE DATABASE Kanbangrid;
-USE Kanbangrid;
+DROP DATABASE IF EXISTS mcrosby;
+CREATE DATABASE mcrosby;
+USE mcrosby;
 
+DROP TABLE IF EXISTS User;
 CREATE TABLE User (
-  u_id integer auto_increment not null primary key,
-  username varchar(40) not null,
-  fname varchar(20) not null,
-  lname varchar(20),
-  email varchar(30) not null,
-  password varchar(25) not null,
-  foreign key(g_id) references Grid(g_id)
+  id INTEGER UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  username VARCHAR(128) NOT NULL,
+  email VARCHAR(128) NOT NULL UNIQUE,
+  pass_hash VARCHAR(255) NOT NULL UNIQUE,
+  row_count INTEGER UNSIGNED DEFAULT 1
 );
 
-CREATE TABLE Grid (
-  gridSize integer not null,
-  numRows integer not null,
-  primary key(user_id),
-  foreign key(user_id) references User(u_id),
-  foreign key(p_id) references Project(p_id)
-);
-
+DROP TABLE IF EXISTS Project;
 CREATE TABLE Project (
-  p_id integer auto_increment not null primary key,
-  status enum('Active','Inactive') not null,
-  row integer,
-  createDate datetime not null,
-  dueDate datetime,
-  color enum('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'),
-  foreign key(g_id) references Grid(g_id),
-  foreign key(t_id) references Task(t_id),
-  foreign key(d_id) references Description(d_id)
+  id INTEGER UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  row INTEGER UNSIGNED NOT NULL DEFAULT 0,
+  entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+  due_date DATETIME,
+  color ENUM('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'),
+  descrip TEXT,
+  user_id INTEGER UNSIGNED NOT NULL REFERENCES User(id)
 );
 
+DROP TABLE IF EXISTS Task;
 CREATE TABLE Task (
-  t_id integer auto_increment not null primary key,
-  status enum('Active', 'Inactive') not null,
-  column_day integer(8) not null,
-  createDate datetime not null,
-  dueDate datetime,
-  color enum('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'),
-  foreign key(p_id) references Project(p_id),
-  foreign key(d_id) references Description(d_id)
-);
-
-CREATE TABLE Description (
-  d_id integer auto_increment not null primary key,
-  textField text,
-  dateCreated datetime not null,
-  foreign key(p_id) references Project(p_id),
-  foreign key(t_id) references Task(t_id)
+  id INTEGER UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  col ENUM('0', '1', '2', '3', '4', '5', '6') NOT NULL,
+  entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+  due_date DATETIME,
+  color ENUM('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'),
+  descrip TEXT,
+  user_id INTEGER UNSIGNED NOT NULL REFERENCES User(id),
+  proj_id INTEGER UNSIGNED NOT NULL REFERENCES Project(id)
 );
