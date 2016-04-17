@@ -9,38 +9,41 @@
     return $data;
   }
 
+  $email = test_input($_POST["user_email"]);
+  $password = test_input($_POST["user_password"]);
+  $emailPresent = false;
+  $passwordPresent = false;
+
   if (isset($_POST["Button_Pressed"])) {
 
-    if(empty($_POST["user_email"])) {
+    if(empty($email)) {
       $_SESSION["email"] = null;
       $_SESSION["email_error"] = "Email address required.";
       header("Location:login.php");
     }
     else {
-      $email_entry = test_input($_POST["user_email"]);
-
-      if(!preg_match("/^.+@.+$/", $email_entry)) {
+      if(!preg_match("/^.+@.+$/", $email)) {
         $_SESSION["email_error"] = "Invalid email syntax.";
-        $_SESSION["email"] = $email_entry;
+        $_SESSION["email"] = $email;
         header("Location:login.php");
       }
       else {
-        $_SESSION["email"] = $email_entry;
+        $_SESSION["email"] = $email;
+        $emailPresent = true;
       }
     }
 
-    if(empty($_POST["user_password"])) {
+    if(empty($password)) {
       $_SESSION["password"] = null;
       $_SESSION["password_error"] = "Password required.";
       header("Location:login.php");
     } else {
-      $password_entry = test_input($_POST["user_password"]);
-      $_SESSION["password"] = $password_entry;
+      $_SESSION["password"] = $password;
+      $passwordPresent = true;
     }
   }
 
-  if((isset($_SESSION["email"])) && (isset($_SESSION["password"]))
-  && (!isset($_SESSION["email_error"])) && !(isset($_SESSION["password_error"]))) {
+  if($emailPresent && $passwordPresent) {
     try {
 
       $status=false;
