@@ -1,3 +1,5 @@
+<?php if(!isset($_SESSION)) session_start(); ?>
+
 <?php if(isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]) {
         $logged_in = true;
       } else {

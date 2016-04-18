@@ -2,7 +2,6 @@
 
 <?php require_once("php_includes/header.php"); ?>
 
-
   <body>
       <form class="smallForm" action="login_handler.php" method="post">
         <h2 class="formTitle">Log In</h2>

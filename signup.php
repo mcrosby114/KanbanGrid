@@ -2,7 +2,6 @@
 
 <?php
   require_once("php_includes/header.php");
-  if(!isset($_SESSION)) session_start();
 ?>
 
 

@@ -1,15 +1,14 @@
 <?php $thisPage = 'Log In'; ?>
 
 <?php
+  require_once("php_includes/header.php");
+?>
+
+<?php
   if(isset($_SESSION['access_granted']) && $_SESSION['access_granted']) {
     header("Location: grid.php");
     die;
   }
-?>
-
-<?php
-  if(!isset($_SESSION)) session_start();
-  require_once("php_includes/header.php");
 ?>
 
 <body>
