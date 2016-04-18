@@ -38,6 +38,7 @@ CREATE TABLE Task (
   entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
   due_date DATETIME,
   color ENUM('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'),
+  title VARCHAR(255) NOT NULL,
   descrip TEXT,
   user_id INTEGER UNSIGNED NOT NULL REFERENCES User(id),
   proj_id INTEGER UNSIGNED NOT NULL REFERENCES Project(id)

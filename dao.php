@@ -4,7 +4,7 @@ class Dao {
   // private $dbname = "mcrosby";
   // private $host ="localhost";
   // private $username = "mcrosby";
-  // private $password = "Vuqadr2p";
+  // private $password = "password";
 
   #For testing with MAMP
   private $host ="localhost";
