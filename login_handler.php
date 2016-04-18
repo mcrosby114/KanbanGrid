@@ -58,6 +58,7 @@
       $dao = new Dao();
       if($dao->validateLogin($email,$password)){
         $_SESSION["access_granted"] = true;
+        $_SESSION["username"] = $dao->getUserName($email);
         header("Location: grid.php");
         die;
       } else {
