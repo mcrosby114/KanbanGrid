@@ -66,6 +66,15 @@ class Dao {
     }
   }
 
+  public function getUserName($email) {
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("SELECT * FROM User WHERE email = :email");
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['username'];
+  }
+
 
 
 
