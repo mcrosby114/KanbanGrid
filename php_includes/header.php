@@ -1,5 +1,7 @@
-<?php if(!isset($_SESSION)) session_start();
-      require_once ("dao.php");
+<?php if(!isset($_SESSION)) {
+  session_start();
+  }
+  require_once ("dao.php");
 ?>
 
 <?php if(isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]) {
