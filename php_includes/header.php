@@ -12,6 +12,9 @@
 <head>
   <meta charset="utf-8">
   <title>KanbanGrid - <?= $thisPage; ?></title>
+  <script src="../scripts/jquery-2.2.3.js"></script>
+  <script src="../scripts/jscode.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
   <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css"/>
   <link rel="stylesheet" href="css/forms.css" type="text/css"/>

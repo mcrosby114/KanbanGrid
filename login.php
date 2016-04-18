@@ -23,16 +23,16 @@
 
           <?php
             if(isset($_SESSION["login_error"])) {
-              echo "<div id='error_msg'>" . $_SESSION["login_error"] . "</div>";
+              echo "<div id='error_msg'>" . $_SESSION["login_error"] . "<span class='close-box'>&#10006</span>" . "</div>";
               unset($_SESSION["login_error"]);
             }
             if(isset($_SESSION["email_error"])) {
-              echo "<div id='error_msg'>" . $_SESSION["email_error"] . "</div>";
+              echo "<div id='error_msg'>" . $_SESSION["email_error"] . "<span class='close-box'>&#10006</span>" . "</div>";
               $emailHighlight = "redHighlight";
               unset($_SESSION["email_error"]);
             }
             if(isset($_SESSION["password_error"])) {
-              echo "<div id='error_msg'>" . $_SESSION["password_error"] . "</div>";
+              echo "<div id='error_msg'>" . $_SESSION["password_error"] . "<span class='close-box'>&#10006</span>" . "</div>";
               $passwordHighlight = "redHighlight";
               unset($_SESSION["password_error"]);
             }
