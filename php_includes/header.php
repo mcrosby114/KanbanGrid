@@ -26,19 +26,24 @@
   <link href="images/squares_16px_16px.png" type="image/png" rel="shortcut icon" />
 </head>
   <nav>
+  <?php if($logged_in){ ?>
+    <a class="banner-logo-container" id="homeclick" href="grid.php">
+      <img id="logo" src="images/squares_50px_50px.png" alt="KanbanGrid Logo" title="Welcom to KanbanGrid"/>
+      <span id="logotxt">KanbanGrid</span></a>
+      <ul id="menubar">
+        <li><a class="headlink" href="addproj.php">+ Add Project</a></li>
+        <li><a class="headlink" href="addtask.php">+ Add Task</a></li>
+        <li><a class="headlink signin_link" href="logout.php">Log Out</a></li>
+      </ul>
+  <?php } else { ?>
     <a class="banner-logo-container" <?php if ($thisPage == 'Welcome') { echo " id=\"homeclick\" "; } ?> href="index.php">
       <img id="logo" src="images/squares_50px_50px.png" alt="KanbanGrid Logo" title="Welcom to KanbanGrid"/>
       <span id="logotxt">KanbanGrid</span></a>
       <ul id="menubar">
-      <?php if($logged_in){ ?>
-        <li><a class="headlink" href="addproj.php">+ Add Project</a></li>
-        <li><a class="headlink" href="addtask.php">+ Add Task</a></li>
-        <li><a class="headlink signin_link" href="logout.php">Log Out</a></li>
-      <?php } else { ?>
         <li><a class="headlink" <?php if ($thisPage == 'Features') { echo " id=\"on\" "; } ?> href="features.php">Features</a></li>
         <li><a class="headlink" <?php if ($thisPage == 'About') { echo " id=\"on\" "; } ?> href="about.php">About</a></li>
         <li><a class="headlink" <?php if ($thisPage == 'Sign Up') { echo " id=\"on\" "; } ?> href="signup.php">Sign Up</a></li>
         <li><a class="headlink signin_link" <?php if ($thisPage == 'Log In') { echo " id=\"on\" "; } ?> href="login.php">Log In</a></li>
-      <?php } ?>
       </ul>
+  <?php } ?>
   </nav>
