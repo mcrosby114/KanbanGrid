@@ -1,13 +1,14 @@
 <?php
 class Dao {
   #For BSU WebDev MySQL
-  private $dbname = "mcrosby";
-  private $host ="localhost";
+  private $host = "localhost";
+  private $port = 3306;
   private $username = "mcrosby";
   private $password = "password";
+  private $dbname = "mcrosby";
 
-  #For testing with MAMP
-  //private $host ="localhost";
+  #For home testing with MAMP
+  //private $host = "localhost";
   //private $port = 3308;
   //private $username = "root";
   //private $password = "root";
@@ -15,12 +16,7 @@ class Dao {
 
   private function getConnection() {
     try {
-      #MAMP Testing
-      //$conn = new PDO("mysql:host={$this->host};port={$this->port};dbname={$this->dbname};", "$this->username", "$this->password");
-
-      #BSU WebDev Actual
-      $conn = new PDO("mysql:host={$this->host};dbname={$this->dbname};", "$this->username", "$this->password");
-
+      $conn = new PDO("mysql:host={$this->host};port={$this->port};dbname={$this->dbname};", "$this->username", "$this->password");
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo 'Connection failed: ' . $e->getMessage();
