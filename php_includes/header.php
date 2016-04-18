@@ -2,6 +2,7 @@
 
 <?php if(isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]) {
         $logged_in = true;
+        $_SESSION["username"] = $dao->getUserName($email);
       } else {
         $logged_in = false;
       }
