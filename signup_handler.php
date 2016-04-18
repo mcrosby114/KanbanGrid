@@ -60,9 +60,9 @@
       header("Location:signup.php");
       die;
     }
-    else if(strlen($password) < 8){
+    else if(strlen($password) < 6){
       $_SESSION["password"] = null;
-      $_SESSION["password_error"] = "Password must be at least 8 characters long.";
+      $_SESSION["password_error"] = "Password must be at least 6 characters long.";
       header("Location:signup.php");
       die;
     }
