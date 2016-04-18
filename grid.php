@@ -1,7 +1,3 @@
-<?php $thisPage = 'Main'; ?>
-
-<?php require_once("php_includes/header.php"); ?>
-
 <?php
 	//Redirect if not logged in
   if(!isset($_SESSION)) session_start();
@@ -10,6 +6,10 @@
     die;
   }
 ?>
+
+<?php $thisPage = 'Main'; ?>
+
+<?php require_once("php_includes/header.php"); ?>
 
 <body>
 		<div>

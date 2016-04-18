@@ -1,9 +1,15 @@
-<?php $thisPage = 'Sign Up'; ?>
-
 <?php
-  require_once("php_includes/header.php");
+	//Redirect if user IS logged in
+  if(!isset($_SESSION)) session_start();
+  if(isset($_SESSION['access_granted']) && $_SESSION['access_granted']) {
+    header("Location: grid.php");
+    die;
+  }
 ?>
 
+<?php $thisPage = 'Sign Up'; ?>
+
+<?php require_once("php_includes/header.php"); ?>
 
 <body>
   <div class="signup-pg-background">
