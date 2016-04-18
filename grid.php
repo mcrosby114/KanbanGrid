@@ -1,11 +1,20 @@
 <?php $thisPage = 'Main'; ?>
 
+<?php
+	//Redirect if not logged in
+  if(!isset($_SESSION)) session_start();
+  if (!isset($_SESSION["access_granted"]) || (isset($_SESSION["access_granted"]) && !$_SESSION["access_granted"])) {
+    header("Location: login.php");
+    die;
+  }
+?>
+
 <?php require_once("php_includes/header.php"); ?>
 
 <body>
 		<div>
 			<table>
-				<caption>John's KanbanGrid</caption>
+				<caption> <?=$_SESSION["username"]?>'s KanbanGrid</caption>
 				<col id="project_title_col"/>
 				<colgroup id="entry_cols">
 					<col /><col /><col />

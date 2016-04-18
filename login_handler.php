@@ -1,6 +1,6 @@
 <?php
   if(!isset($_SESSION)) session_start();
-  require_once "dao.php";
+  require_once ("dao.php");
 
   function test_input($data) {
     $data = trim($data);
@@ -19,13 +19,15 @@
     if(empty($email)) {
       $_SESSION["email"] = null;
       $_SESSION["email_error"] = "Email address required.";
-      header("Location:login.php");
+      header("Location:signup.php");
+      die;
     }
     else {
-      if(!preg_match("/^.+@.+$/", $email)) {
+      if(!preg_match("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $email)) {
         $_SESSION["email_error"] = "Invalid email syntax.";
         $_SESSION["email"] = $email;
-        header("Location:login.php");
+        header("Location:signup.php");
+        die;
       }
       else {
         $_SESSION["email"] = $email;
@@ -36,8 +38,16 @@
     if(empty($password)) {
       $_SESSION["password"] = null;
       $_SESSION["password_error"] = "Password required.";
-      header("Location:login.php");
-    } else {
+      header("Location:signup.php");
+      die;
+    }
+    else if(strlen($password) < 8){
+      $_SESSION["password"] = null;
+      $_SESSION["password_error"] = "Password must be at least 8 characters long.";
+      header("Location:signup.php");
+      die;
+    }
+    else {
       $_SESSION["password"] = $password;
       $passwordPresent = true;
     }
@@ -45,18 +55,16 @@
 
   if($emailPresent && $passwordPresent) {
     try {
-
-      $status=false;
-      // $dao = new Dao();
-      // $status = $dao->validateLogin($email_entry,$password_entry);
-
-      if ($status===FALSE) {
+      $dao = new Dao();
+      if($dao->validateLogin($email,$password)){
+        $_SESSION["access_granted"] = true;
+        header("Location: grid.php");
+        die;
+      } else {
+        $_SESSION["access_granted"] = false;
         $_SESSION["login_error"] = "Invalid combination of email and password.";
         header("Location:login.php");
-      }
-      else {
-        $_SESSION["logged_in"] = true;
-        header("Location:grid.php");
+        die;
       }
     } catch(Exception $e) {
         var_dump($e);

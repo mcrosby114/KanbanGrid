@@ -1,6 +1,6 @@
 <?php
   if(!isset($_SESSION)) session_start();
-  require_once "dao.php";
+  require_once ("dao.php");
 
   function test_input($data) {
     $data = trim($data);
@@ -22,6 +22,13 @@
       $_SESSION["username"] = null;
       $_SESSION["username_error"] = "Username required.";
       header("Location:signup.php");
+      die;
+    }
+    else if(!preg_match("/^[A-Za-z][A-Za-z0-9]{0,31}$/", $username)){
+      $_SESSION["username_error"] = "Username must be letters and/or numbers.";
+      $_SESSION["username"] = $username;
+      header("Location:signup.php");
+      die;
     }
     else {
       $_SESSION["username"] = $username;
@@ -32,12 +39,14 @@
       $_SESSION["email"] = null;
       $_SESSION["email_error"] = "Email address required.";
       header("Location:signup.php");
+      die;
     }
     else {
-      if(!preg_match("/^.+@.+$/", $email)) {
+      if(!preg_match("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $email)) {
         $_SESSION["email_error"] = "Invalid email syntax.";
         $_SESSION["email"] = $email;
         header("Location:signup.php");
+        die;
       }
       else {
         $_SESSION["email"] = $email;
@@ -49,7 +58,15 @@
       $_SESSION["password"] = null;
       $_SESSION["password_error"] = "Password required.";
       header("Location:signup.php");
-    } else {
+      die;
+    }
+    else if(strlen($password) < 8){
+      $_SESSION["password"] = null;
+      $_SESSION["password_error"] = "Password must be at least 8 characters long.";
+      header("Location:signup.php");
+      die;
+    }
+    else {
       $_SESSION["password"] = $password;
       $passwordPresent = true;
     }
@@ -62,9 +79,11 @@
       if ($dao->emailExists($email)){
         $_SESSION["email_error"] = "Error: this email address is alreay in use.";
         header("Location:signup.php");
+        die;
       } else {
         $dao->createUser($username, $email, $password);
         header("Location:signup_success.php");
+        die;
       }
     } catch(Exception $e) {
         var_dump($e);

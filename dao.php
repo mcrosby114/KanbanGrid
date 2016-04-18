@@ -33,11 +33,10 @@ class Dao {
     $stmt = $conn->prepare("SELECT * FROM User WHERE email = :email");
     $stmt->bindParam(":email", $email);
     $stmt->execute();
-    if($stmt->fetch()) {
+    if($stmt->fetch())
       return true;
-    } else {
+    else
       return false;
-    }
   }
 
   public function createUser($username, $email, $password) {
@@ -48,6 +47,23 @@ class Dao {
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $hashed_pwd);
     $stmt->execute();
+  }
+
+  public function validateLogin($email,$password) {
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("SELECT * FROM User WHERE email = :email");
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    //If fetch did not return false, email exists.
+    //Proceed to check password against hash associated with email in database
+    if($row){
+      $stored_hash = $row['pass_hash'];
+      if(password_verify($password, $stored_hash))
+        return true;
+    } else {
+      return false;
+    }
   }
 
 
