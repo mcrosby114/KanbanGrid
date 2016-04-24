@@ -82,11 +82,14 @@ nav{
   left: 0px;
   right: 0px;
   background-color: #004679;
-  box-shadow: 1px 5px 70px dimgray;
   min-width:50em;
   width:100%;
   overflow:hidden;
-	z-index:1;
+  z-index:1;
+}
+
+.shadownav{
+  box-shadow: 1px 5px 70px dimgray;
 }
 
 a.banner-logo-container {

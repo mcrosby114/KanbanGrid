@@ -52,18 +52,19 @@ form.smallForm{
 }
 
 .login-pg-background{
-  /*background-color:whitesmoke;
-  background: url(../images/aquaradiance_1024x768.jpg) no-repeat center center fixed;
+  /*background-color:whitesmoke;*/
+  background-image: url(../images/light-blue-0.svg);
+  background-size:cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  background-color:whitesmoke;*/
-  background-image: url(../images/light-blue-0.svg);
+  background-position:50% 0;
+
+  /*background: url(../images/aquaradiance_1024x768.jpg) no-repeat center center fixed;*/
   /*background-image: url(../images/light-blue-4.jpg);*/
   /*background-image: url(../images/light-orange.png);*/
   /*background-image: url(../images/orange-abstract.jpg);*/
-  background-size:cover;
+
   position:absolute;
   top:60px;
   bottom:0px;
@@ -72,16 +73,20 @@ form.smallForm{
 }
 
 .signup-pg-background{
-  background-color:whitesmoke;
+  /*background-color:whitesmoke;*/
   background-image: url(../images/aquaradiance_1024x768.jpg);
-  /*background-image: url(../images/blueprint_1600x1200.jpg);*/
   background-size: cover;
-  /*background-color:whitesmoke;
-  background-image: url(../images/light-blue-0.svg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position:50% 0;
+
+  /*background-image: url(../images/blueprint_1600x1200.jpg);*/
+  /*background-image: url(../images/light-blue-0.svg);*/
   /*background-image: url(../images/light-blue-4.jpg);*/
   /*background-image: url(../images/light-orange.png);*/
   /*background-image: url(../images/orange-abstract.jpg);*/
-  background-size:cover;
+
   position:absolute;
   top:60px;
   bottom:0px;

@@ -28,7 +28,7 @@
   <link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'> -->
   <link href="images/squares_16px_16px.png" type="image/png" rel="shortcut icon" />
 </head>
-  <nav>
+  <nav <?php if (!$logged_in) { echo " class=\"shadownav\" "; } ?>>
   <?php if($logged_in){ ?>
     <a class="banner-logo-container" id="homeclick" href="grid.php">
       <img id="logo" src="images/squares_50px_50px.png" alt="KanbanGrid Logo" title="Welcom to KanbanGrid"/>
