@@ -5,6 +5,6 @@
     die;
   }
   session_destroy();
-  session_regenerate_id(TRUE);
+  // session_regenerate_id(TRUE);
   header("Location: login.php");
 ?>

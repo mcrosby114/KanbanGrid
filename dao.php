@@ -71,7 +71,57 @@ class Dao {
     return $row['username'];
   }
 
+  public function getUserID($email) {
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("SELECT * FROM User WHERE email = :email");
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['id'];
+  }
 
+  public function getRowCount($user_id) {
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare('CALL userProjectCount(:user_id, @rowCt)');
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->execute();
+    $stmt->closeCursor();
+    $count = $conn->query("SELECT @rowCt AS rowCt")->fetch(PDO::FETCH_ASSOC);
+    return $count['rowCt'];
+  }
+
+  public function addProject($row, $title, $user_id, $descrip=NULL, $due_date=NULL, $color=NULL) {
+    if(is_null($due_date)){
+      $conn = $this->getConnection();
+      $stmt = $conn->prepare("INSERT INTO Project (row, color, title, descrip, user_id)
+      values (:row, :color, :title, :descrip, :user_id)");
+      $stmt->bindParam(':row', $row);
+      $stmt->bindParam(':color', $color);
+      $stmt->bindParam(':title', $title);
+      $stmt->bindParam(':descrip', $descrip);
+      $stmt->bindParam(':user_id', $user_id);
+      $stmt->execute();
+    }else{
+      $conn = $this->getConnection();
+      $stmt = $conn->prepare("INSERT INTO Project (row, due_date, color, title, descrip, user_id)
+      values (:row, :due_date, :color, :title, :descrip, :user_id)");
+      $stmt->bindParam(':row', $row);
+      $stmt->bindParam(':due_date', $due_date);
+      $stmt->bindParam(':color', $color);
+      $stmt->bindParam(':title', $title);
+      $stmt->bindParam(':descrip', $descrip);
+      $stmt->bindParam(':user_id', $user_id);
+      $stmt->execute();
+    }
+  }
+
+  public function getProjects($user_id) {
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("SELECT * FROM Project WHERE user_id = :user_id");
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
 
 
 }

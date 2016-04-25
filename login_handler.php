@@ -28,13 +28,11 @@ if (isset($_POST["Button_Pressed"])) {
   }
 
   if(empty($password)) {
-    $_SESSION["password"] = null;
     $_SESSION["password_error"] = "Password required.";
     header("Location:login.php");
     die;
   }
   else {
-    $_SESSION["password"] = $password;
     $passwordPresent = true;
   }
 }
@@ -45,6 +43,7 @@ if($emailPresent && $passwordPresent) {
     if($dao->validateLogin($email,$password)){
       $_SESSION["access_granted"] = true;
       $_SESSION["username"] = $dao->getUserName($email);
+      $_SESSION["userid"] = $dao->getUserID($email);
       header("Location: grid.php");
       die;
     } else {

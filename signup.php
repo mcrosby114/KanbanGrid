@@ -42,11 +42,11 @@
 
           <fieldset>
             <label class="labelTitle" for="username">Name:</label>
-            <input type="text" id="username" class="<?= $nameHighlight; ?>" name="user_name"
-            value="<?php
-              if(isset($_SESSION["username"]))
-                echo $_SESSION["username"];
-            ?>">
+              <input type="text" id="username" class="<?= $nameHighlight; ?>" name="user_name"
+              value="<?php
+                if(isset($_SESSION["username"]))
+                  echo $_SESSION["username"];
+              ?>">
 
             <label class="labelTitle" for="email">Email:</label>
             <input type="text" id="email" class="<?= $emailHighlight; ?>" name="user_email" placeholder="example@example.com"

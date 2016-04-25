@@ -1,4 +1,4 @@
-<footer <?php if ($thisPage == 'Log In' || $thisPage == 'Sign Up' || $thisPage == 'Sign-up Successful') { echo " class=\"absolutePos\" "; } ?>>
+<footer <?php if ($thisPage == 'Log In' || $thisPage == 'Sign Up' || $thisPage == 'Sign-up Successful' || $thisPage == 'Add Project') { echo " class=\"absolutePos\" "; } ?>>
     <ul>
       <li>&copy;<?php date_default_timezone_set("America/Boise"); echo date("Y"); ?> Matthew Crosby &nbsp&nbsp</li>
       <li><a class="footLink" href="https://github.com/mcrosby114" target="_blank">Github</a></li> |

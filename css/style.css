@@ -63,7 +63,7 @@ body {
 
 .grid-pg-background{
   min-height:980px;
-  margin-top:6px;
+  margin-top:2px;
 }
 
 h1{
@@ -240,25 +240,45 @@ footer > ul > li a:visited{
 
 table{
   border-style:outset;
+  /*border-color:#004679;*/
+  border-color:#0769ad;
+  border-width:thin;
+  box-shadow: 3px 3px 23px rgba(1, 1, 1, 0.6)
 }
 
 caption{
   font-size: 30px;
-  font-stretch:extra-expanded;
-  font-weight:900;
-  padding-top:10px;
-  padding-bottom:10px;
-  background-color:#FFD300;
-  border-radius: 5px;
-  border-style:groove;
+  font-stretch: extra-expanded;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 3px;
+  border-radius: 10px 10px 0 0;
+  border-right: 3px solid rgba(2, 2, 2, 0.28);
+  border-left: 3px solid rgba(2, 2, 2, 0.28);
+  border-top: 3px solid rgba(250, 250, 250, 0.27);
+  border-bottom: 2.5px solid #333;
+  /*box-shadow: -3px 0 5px -3px rgba(1, 1, 1, 0.87), 3px 0 5px -3px rgba(1, 1, 1, 0.87);*/
+  /*border-top: 2px solid #7acef4;*/
+  background: #0769ad;
+  color: white;
+}
+
+tbody{
+  color:black;
 }
 
 td{
-  overflow:auto;
-  border-style:ridge;
-  border-color:white;
-  border-width: thin;
   min-width:250px;
+  overflow:auto;
+  border-top:1.5px solid #c0c0c0;
+  /*border-left: 1.5px solid #e1e1e1;*/
+  border-left: 1px solid #c0c0c0;
+  padding: 4px;
+  /*border-style:solid;*/
+  /*border-color:white;*/
+  /*border-width: thin;*/
 }
 
 th{
@@ -274,4 +294,42 @@ th{
 
 #entry_cols{
   background-color:#F7F7F7;
+}
+
+td.p_cell{
+  text-align:center;
+}
+
+td.p_cell >p.p_descrip {
+  text-align:left;
+}
+
+.color_Red{
+  background-color:#ffccd6;
+  /*background-color:#ff8099;*/
+}
+
+.color_Orange{
+  /*background-color:#ffe7b6;*/
+  background-color:#ffb13b;
+}
+
+.color_Yellow{
+  /*background-color:#ffffe0;*/
+  background-color:#fed22f;
+}
+
+.color_Green{
+  background-color:#dcffc2;
+  /*background-color:#7dbb00;*/
+}
+
+.color_Blue{
+  background-color:#c3ddff;
+  /*background-color:#4a99ff;*/
+}
+
+.color_Purple{
+  background-color:#efcef4;
+  /*background-color:#c69cf3;*/
 }

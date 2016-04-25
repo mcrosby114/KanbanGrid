@@ -24,7 +24,7 @@
       header("Location:signup.php");
       die;
     }
-    else if(!preg_match("/^[A-Za-z][A-Za-z0-9]{0,31}$/", $username)){
+    else if(!preg_match("/^[A-Za-z][\sA-Za-z0-9]{0,31}$/", $username)){
       $_SESSION["username_error"] = "Username must be letters and/or numbers.";
       $_SESSION["username"] = $username;
       header("Location:signup.php");
@@ -55,19 +55,16 @@
     }
 
     if(empty($password)) {
-      $_SESSION["password"] = null;
       $_SESSION["password_error"] = "Password required.";
       header("Location:signup.php");
       die;
     }
     else if(strlen($password) < 6){
-      $_SESSION["password"] = null;
       $_SESSION["password_error"] = "Password must be at least 6 characters long.";
       header("Location:signup.php");
       die;
     }
     else {
-      $_SESSION["password"] = $password;
       $passwordPresent = true;
     }
   }

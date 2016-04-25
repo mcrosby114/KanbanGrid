@@ -7,18 +7,23 @@ if (!isset($_SESSION["access_granted"]) || (isset($_SESSION["access_granted"]) &
 }
 ?>
 
-<?php $thisPage = 'Main'; ?>
-
-<?php require_once("php_includes/header.php"); ?>
+<?php
+	$thisPage = 'Main';
+	$user_id = $_SESSION["userid"];
+	$user_name = $_SESSION["username"];
+	require_once("php_includes/header.php");
+	// require_once ("dao.php");
+	// require_once("project_retriever.php");
+?>
 
 <body>
 	<div class="grid-pg-background">
 		<table>
-			<caption> <?=$_SESSION["username"]?>'s KanbanGrid</caption>
+			<caption> <?=ucwords($user_name)?>'s Projects</caption>
 			<col id="project_title_col"/>
 			<colgroup id="entry_cols">
 				<col /><col /><col />
-				<col /><col /><col />
+				<col /><col /><col /><col />
 			</colgroup>
 			<tr><th></th>
 				<th>Mon</th>
@@ -27,44 +32,13 @@ if (!isset($_SESSION["access_granted"]) || (isset($_SESSION["access_granted"]) &
 				<th>Thurs</th>
 				<th>Fri</th>
 				<th>Sat</th>
+				<th>Sun</th>
 			</tr>
-			<tr>
-				<td>blank</td>
-				<td><div>Test Data...<p>Hello, this is a line</p><p>Follow me to the next line...</p><h6>Heading woohoo</h6><p>Followed by this line</p><hr><p>The end</p></div></td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-			</tr>
-			<tr>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-			</tr>
-			<tr>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-			</tr>
-			<tr>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-				<td>blank</td>
-			</tr>
+			<?php include ("generate_grid.php"); ?>
 		</table>
+
+		<?php include ("debugArray.php"); ?>
+
 	</div>
 </body>
 
