@@ -37,9 +37,8 @@ if (!isset($_SESSION["access_granted"]) || (isset($_SESSION["access_granted"]) &
 			<?php include ("generate_grid.php"); ?>
 		</table>
 
-		<?php include ("debugArray.php"); ?>
+		<!-- include ("debugArray.php"); -->
 
 	</div>
-</body>
 
 <?php require_once("php_includes/footer.php"); ?>

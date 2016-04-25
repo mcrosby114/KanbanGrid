@@ -46,13 +46,22 @@
         <?php } ?>
         <p class="p_descrip"><?= $p_descrip;?></p>
       </td>
-      <td>blank</td>
-      <td>blank</td>
-      <td>blank</td>
-      <td>blank</td>
-      <td>blank</td>
-      <td>blank</td>
-      <td>blank</td>
+      <td>
+        <div class="task-container">
+          <h5>Task Title</h5>
+          <p class="t_descrip">Description Details...</p>
+        </div>
+        <div class="task-container">
+          <h5>Task Title</h5>
+          <p class="t_descrip">Description Details...</p>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
 <?php	}
 ?>

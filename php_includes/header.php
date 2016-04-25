@@ -14,10 +14,14 @@
   <title>KanbanGrid - <?= $thisPage; ?></title>
   <script src="../scripts/jquery-2.2.3.js"></script>
   <script src="../scripts/jscode.js"></script>
+  <!-- <script src="../scripts/scripts/jquery.magnific-popup.js"></script> -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
   <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css"/>
   <link rel="stylesheet" href="css/forms.css" type="text/css"/>
+  <!-- <link rel="stylesheet" href="css/_settings.css" type="text/css"/> -->
+  <!-- <link rel="stylesheet" href="css/main.css" type="text/css"/> -->
+  <!-- <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/> -->
   <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
   <!-- <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
