@@ -7,12 +7,12 @@
 -- mysql -D <mcrosby> -u USERNAME -p < <mcrosby.sql>
 
 
-DROP DATABASE IF EXISTS mcrosby;
-CREATE DATABASE mcrosby;
-USE mcrosby;
+DROP DATABASE IF EXISTS `mcrosby`;
+CREATE DATABASE `mcrosby`;
+USE `mcrosby`;
 
-DROP TABLE IF EXISTS User;
-CREATE TABLE User (
+DROP TABLE IF EXISTS `User`;
+CREATE TABLE `User` (
   id INTEGER UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
   username VARCHAR(128) NOT NULL,
   email VARCHAR(128) NOT NULL UNIQUE,
