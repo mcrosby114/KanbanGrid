@@ -11,8 +11,8 @@ DROP DATABASE IF EXISTS mcrosby;
 CREATE DATABASE mcrosby;
 USE mcrosby;
 
-DROP TABLE IF EXISTS `User`;
-CREATE TABLE `User`
+DROP TABLE IF EXISTS `Users`;
+CREATE TABLE `Users`
 (
   `id` INTEGER UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `username` VARCHAR(128) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `Project`
   `color` ENUM('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple'),
   `title` VARCHAR(255) NOT NULL,
   `descrip` TEXT,
-  `user_id` INTEGER UNSIGNED NOT NULL REFERENCES User(id)
+  `user_id` INTEGER UNSIGNED NOT NULL REFERENCES Users(id)
 );
 
 DROP TABLE IF EXISTS Task;
@@ -46,7 +46,7 @@ CREATE TABLE Task
   `color` ENUM('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple'),
   `title` VARCHAR(255) NOT NULL,
   `descrip` TEXT,
-  `user_id` INTEGER UNSIGNED NOT NULL REFERENCES User(id),
+  `user_id` INTEGER UNSIGNED NOT NULL REFERENCES Users(id),
   `proj_id` INTEGER UNSIGNED NOT NULL REFERENCES Project(id)
 );
 
