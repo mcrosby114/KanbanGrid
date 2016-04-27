@@ -408,6 +408,14 @@ button.task-in-proj{
   background-color:lightcoral;
 }
 
+.del-button-white-border{
+  float:left;
+  border-style:solid;
+  border-color: white;
+  border-width: 1px 1px 1px;
+  background-color:lightcoral;
+}
+
 .button-custom span {
   cursor: pointer;
   display: inline-block;

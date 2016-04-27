@@ -23,7 +23,16 @@
 			<p>
 				The Kanban board gives you an excellent overview of your current work situation. Visualizing work in a team environment simplifies communication and lead to improved effectiveness. By focusing your efforts on working on fewer items at the same time, you will get more done. Lots more actually. And you will feel less stressed.
 			</p>
-			<img src="images/computer4_cropped.jpg" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/>
+			<ul class="bxslider">
+			  <!-- <li><img src="images/kanboard.png" height=400px min-width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li> -->
+			  <li><img src="images/kanban3.png" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li>
+			  <li><img src="images/kanban4.png" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li>
+				<li><img src="images/kanban5.png" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li>
+				<li><img src="images/computer4_cropped.jpg" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li>
+			  <li><img src="images/office5.jpg" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li>
+				<li><img src="images/office4.jpg" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/></li>
+			</ul>
+			<!-- <img src="images/computer4_cropped.jpg" height=400px width=1000px alt="Kanban Example" title="KanbanGrid in Action"/> -->
 		</div>
 
 		<div class="bodysection" id="sec3">

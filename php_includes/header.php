@@ -14,13 +14,19 @@
   <title>KanbanGrid - <?= $thisPage; ?></title>
   <script src="../scripts/jquery-2.2.3.js"></script>
   <script src="../scripts/jscode.js"></script>
+  <script src="../scripts/jquery-ui.js"></script>
+  <script src="../scripts/jquery.bxslider.js"></script>
   <!-- <script src="../scripts/scripts/jquery.magnific-popup.js"></script> -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
   <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
-  <link rel="stylesheet" href="css/style.css" type="text/css"/>
   <link rel="stylesheet" href="css/forms.css" type="text/css"/>
+  <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css"/>
   <link rel="stylesheet" href="css/buttons.css" type="text/css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css" type="text/css"/>
+  <link rel="stylesheet" href="css/jquery-ui.css" type="text/css"/>
+  <link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css"/>
+  <link rel="stylesheet" href="css/jquery-ui.theme.css" type="text/css"/>
   <!-- <link rel="stylesheet" href="css/_settings.css" type="text/css"/> -->
   <!-- <link rel="stylesheet" href="css/main.css" type="text/css"/> -->
   <!-- <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/> -->
@@ -41,7 +47,7 @@
       <span id="logotxt">KanbanGrid</span></a>
       <ul id="menubar">
         <li><a class="headlink" href="addproj.php">+ Add Project</a></li>
-        <li><a class="headlink" href="">Settings</a></li>
+        <li><a id="settings-test" class="headlink" href="">Settings</a></li>
         <li><a class="headlink signin_link" href="logout.php">Log Out</a></li>
       </ul>
   <?php } else { ?>

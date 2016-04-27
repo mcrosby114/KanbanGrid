@@ -81,7 +81,10 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
-            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
+            <div id="dialog-confirm-task" title="Delete this Task?">
+              <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This will be permanently deleted and cannot be recovered. Are you sure?</p>
+            </div>
+            <button  id=<?php echo $task_id; ?> class="opener-task del-button-white-border button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
@@ -101,7 +104,7 @@
       <td id="col_2">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 2){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -113,6 +116,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
@@ -132,7 +136,7 @@
       <td id="col_3">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 3){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -144,6 +148,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
@@ -162,7 +167,7 @@
       <td id="col_4">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 4){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -174,6 +179,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
@@ -192,7 +198,7 @@
       <td id="col_5">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 5){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -204,6 +210,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
@@ -222,7 +229,7 @@
       <td id="col_6">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 6){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -234,6 +241,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
@@ -252,7 +260,7 @@
       <td id="col_7">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 7){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -264,6 +272,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
