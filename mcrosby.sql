@@ -44,15 +44,15 @@ CREATE TABLE Task (
   proj_id INTEGER UNSIGNED NOT NULL REFERENCES Project(id)
 );
 
-DROP procedure IF EXISTS userProjectCount;
-DELIMITER $$
-USE mcrosby$$
-CREATE PROCEDURE userProjectCount (
-  IN userID INTEGER, OUT rowCount INTEGER)
-  BEGIN
-  SELECT COUNT(*)
-  INTO rowCount
-  from Project
-  WHERE user_id = userID;
-  END$$
-DELIMITER;
+-- DROP procedure IF EXISTS userProjectCount;
+-- DELIMITER $$
+-- USE mcrosby$$
+-- CREATE PROCEDURE userProjectCount (
+--   IN userID INTEGER, OUT rowCount INTEGER)
+--   BEGIN
+--   SELECT COUNT(*)
+--   INTO rowCount
+--   from Project
+--   WHERE user_id = userID;
+--   END$$
+-- DELIMITER;

@@ -80,14 +80,20 @@ class Dao {
     return $row['id'];
   }
 
-  public function getRowCount($user_id) {
+  public function getNextRow($user_id) {
     $conn = $this->getConnection();
-    $stmt = $conn->prepare('CALL userProjectCount(:user_id, @rowCt)');
+    // $stmt = $conn->prepare('CALL userProjectCount(:user_id, @rowCt)');
+    // $stmt->bindParam(":user_id", $user_id);
+    // $stmt->execute();
+    // $stmt->closeCursor();
+    // $count = $conn->query("SELECT @rowCt AS rowCt")->fetch(PDO::FETCH_ASSOC);
+    // return $count['rowCt'];
+
+    $stmt = $conn->prepare("SELECT MAX(row) FROM Project WHERE user_id = :user_id");
     $stmt->bindParam(":user_id", $user_id);
     $stmt->execute();
-    $stmt->closeCursor();
-    $count = $conn->query("SELECT @rowCt AS rowCt")->fetch(PDO::FETCH_ASSOC);
-    return $count['rowCt'];
+    $highest = $stmt->fetch();
+    return $highest[0] + 1;
   }
 
   public function addProject($row, $title, $user_id, $descrip=NULL, $due_date=NULL, $color=NULL) {

@@ -24,7 +24,7 @@ if (isset($_POST["Button_Pressed"])) {
     }
     $p_color = ($_POST["colorPicker"]);
     $dao = new Dao();
-    $nextRow = $dao->getRowCount($user_id);
+    $nextRow = $dao->getNextRow($user_id);
 
     $dao->addProject($nextRow, $p_title, $user_id, $p_descrip, $p_date, $p_color);
 
