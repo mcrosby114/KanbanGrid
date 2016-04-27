@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css"/>
   <link rel="stylesheet" href="css/forms.css" type="text/css"/>
+  <link rel="stylesheet" href="css/buttons.css" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="css/_settings.css" type="text/css"/> -->
   <!-- <link rel="stylesheet" href="css/main.css" type="text/css"/> -->
   <!-- <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/> -->

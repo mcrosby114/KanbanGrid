@@ -16,17 +16,25 @@ function test_input($data) {
 
 if (isset($_POST["Button_Pressed"])) {
   try {
-    $p_title = test_input($_POST["p_title"]);
-    $p_descrip = test_input($_POST["p_descrip"]);
-    $p_date = ($_POST["p_due"]);
-    if($p_date == ""){
-      $p_date = NULL;
+    $t_column = intval($_POST["dayPicker"]);
+    $t_title = test_input($_POST["t_title"]);
+    $proj_id = intval($_POST["proj_id"]);
+    $t_descrip = test_input($_POST["t_descrip"]);
+    $t_date = ($_POST["t_due"]);
+    if($t_date == ""){
+      $t_date = NULL;
     }
-    $p_color = ($_POST["colorPicker"]);
+    $t_color = $_POST["colorPicker"];
+    // $t_column = 3;
+    // $t_title = "TITLE TEST";
+    // $user_id = 10;
+    // $proj_id = 2;
+    // $t_descrip = "DESCRIP TEST";
+    // $t_date = "2016-02-01";
+    // $t_color = "Red";
     $dao = new Dao();
-    $nextRow = $dao->getRowCount($user_id);
 
-    $dao->addProject($nextRow, $p_title, $user_id, $p_descrip, $p_date, $p_color);
+    $dao->addTask($t_column, $t_title, $user_id, $proj_id, $t_descrip, $t_date, $t_color);
 
     header("Location: grid.php");
     die;

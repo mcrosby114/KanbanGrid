@@ -270,12 +270,14 @@ tbody{
 }
 
 td{
+  position:relative;
   min-width:250px;
   overflow:auto;
   border-top:1.5px solid #c0c0c0;
   /*border-left: 1.5px solid #e1e1e1;*/
   border-left: 1px solid #c0c0c0;
   padding: 4px;
+  /*padding-bottom:10px;*/
   /*border-style:solid;*/
   /*border-color:white;*/
   /*border-width: thin;*/
@@ -296,34 +298,141 @@ th{
   background-color:#F7F7F7;
 }
 
-td.p_cell{
-  text-align:center;
-  cursor: pointer;
-  word-wrap: break-word;
+hr{
+  margin: 0 0 10px 0;
+  border-color: white;
+  border-style: outset;
 }
 
-td.p_cell >p.p_descrip {
+.p_cell{
+  /*text-align:center;*/
+  cursor: pointer;
+  /*word-wrap: break-word;*/
+  vertical-align:top;
+}
+
+.p_descrip {
   text-align:left;
   font-style:italic;
+  font-size:14.5px;
+  line-height:140%;
+  margin:0 0 0 0;
+  padding-bottom:10px;
 }
 
-div.task-container{
-  position: relative;
-  padding: 5px;
-  border: 1px solid #fed22f;
-  margin: 10px;
-  cursor: pointer;
-  word-wrap: break-word;
+.t_descrip {
+  text-align:left;
+  font-style:italic;
+  font-size:12.5px;
+  line-height:140%;
+  margin:0px;
+  padding-bottom:5px;
+}
+
+.due-txt{
+  /*padding-bottom:50px;*/
+  margin:0;
+  font-size:14px;
+  /*text-align:right;*/
   border-radius: 3px;
-  font-size: 12px;
+  background-color:#FFFFF0;
+  opacity:0.85;
+  /*text-shadow:rgba(0,0,0,.2) 2px 3px 4px,rgba(255,255,255,.4) 0 -4px 30px;*/
+  box-shadow:2px 2px 7px rgba(0, 0, 0, 0.1);
+}
+
+.item-title{
+  margin:0;
+  padding: 8px 0 8px 0;
+  text-shadow:rgba(0,0,0,.2) 2px 3px 4px,rgba(255,255,255,.4) 0 -4px 30px;
+}
+
+.p_wrapper > .item-title{
+  font-size:15px;
+}
+
+.p_wrapper{
+  margin: 3px 3px 3px 3px;
+  padding: 0 2px 45px 2px;
+  text-align:center;
+  word-wrap: break-word;
+}
+
+.t_wrapper{
+  margin: 3px 3px 3px 3px;
+  padding: 0px 2px 2px 2px;
+  text-align:center;
+  word-wrap: break-word;
+}
+
+.task-container{
+  /*text-align:center;*/
+  position: relative;
+  border: 2px solid #fed22f;
+  margin-bottom: 4px;
+  cursor: pointer;
+  /*word-wrap: break-word;*/
+  border-radius: 3px;
+  font-size: 13px;
   border-color: #4a99ff;
   background-color:#c3ddff;
+  vertical-align:top;
 }
 
-div.task-container >p.t_descrip {
-  text-align:left;
-  font-style:italic;
-  font-size:12px;
+button.task-in-proj{
+  position:absolute;
+  bottom:2px;
+  left:0px;
+  width:100%;
+  padding: 0px 6px 0px 6px;
+  margin:0;
+  border-color: white;
+  border-width: 1.5px 1.5px 1.5px;
+
+  display: inline-block;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#white-border{
+  border-style:solid;
+  border-color: white;
+  border-width: 2px 2px 2px;
+}
+
+#del-button-white-border{
+  float:left;
+  border-style:solid;
+  border-color: white;
+  border-width: 1px 1px 1px;
+  background-color:lightcoral;
+}
+
+.button-custom span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-custom span:after {
+  /*content: "»";*/
+  /*content: "\2945";*/
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-custom:hover span {
+  padding-right: 25px;
+}
+
+.button-custom:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .color_Red{
@@ -333,12 +442,15 @@ div.task-container >p.t_descrip {
 
 .color_Orange{
   /*background-color:#ffe7b6;*/
-  background-color:#ffb13b;
+  /*background-color:#ffb13b;*/
+  /*background-color:#ffbf00;*/
+  background-color:#FFC36E;
 }
 
 .color_Yellow{
   /*background-color:#ffffe0;*/
-  background-color:#fed22f;
+  /*background-color:#fed22f;*/
+  background-color:#fedf6a;
 }
 
 .color_Green{
@@ -354,4 +466,34 @@ div.task-container >p.t_descrip {
 .color_Purple{
   background-color:#efcef4;
   /*background-color:#c69cf3;*/
+}
+
+.task-container.color_Red{
+  background-color:#ffccd6;
+  border-color:#ff8099;
+}
+
+.task-container.color_Orange{
+  background-color:#ffe7b6;
+  border-color:#ffb13b;
+}
+
+.task-container.color_Yellow{
+  background-color:#ffffe0;
+  border-color:#fed22f;
+}
+
+.task-container.color_Green{
+  background-color:#dcffc2;
+  border-color:#7dbb00;
+}
+
+.task-container.color_Blue{
+  background-color:#c3ddff;
+  border-color:#4a99ff;
+}
+
+.task-container.color_Purple{
+  background-color:#efcef4;
+  border-color:#c69cf3;
 }

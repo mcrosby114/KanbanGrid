@@ -9,8 +9,8 @@
     foreach ($args as $n => $field) {
       if (is_string($field)) {
         $tmp = array();
-        foreach ($data as $key => $row)
-          $tmp[$key] = $row[$field];
+        foreach ($data as $key => $p_row)
+          $tmp[$key] = $p_row[$field];
         $args[$n] = $tmp;
       }
     }
@@ -20,48 +20,264 @@
   }
 
   $dao = new Dao();
-  $proj_rows = $dao->getProjects($user_id);
-  $sorted_rows = array_orderby($proj_rows, 'row', SORT_ASC, 'id', SORT_ASC);
+  $proj_query = $dao->getProjects($user_id);
+  $proj_rows = array_orderby($proj_query, 'row', SORT_ASC, 'id', SORT_ASC);
+  $task_query = $dao->getTasks($user_id);
+  $task_rows = array_orderby($task_query, 'proj_id', SORT_ASC, 'col', SORT_ASC);
 
   $p_due_date = "";
   $p_color = "";
   $p_title = "";
   $p_descrip = "";
 
-  foreach($sorted_rows as $row){
-    if(is_null($row["due_date"])){
+  foreach($proj_rows as $p_row){
+    $p_id = $p_row["id"];
+    foreach($task_rows as $t_row){      //Load this project's tasks in a list
+      if($t_row["proj_id"] == $p_id){
+        $proj_tasks[] = $t_row;
+      }
+    }
+    if(is_null($p_row["due_date"])){    //Prepare to print the project's info in first table column
       $p_due_date = NULL;
     }else{
-      $date = date_create($row["due_date"]);
+      $date = date_create($p_row["due_date"]);
       $p_due_date = date_format($date, 'F jS, Y');
     }
-    $p_color = $row["color"];
-    $p_title = $row["title"];
-    $p_descrip = $row["descrip"]; ?>
+    $p_color = $p_row["color"];
+    $p_title = $p_row["title"];
+    $p_descrip = $p_row["descrip"]; ?>
     <tr>
-      <td class="<?='p_cell '.'color_'.$p_color; ?>">
-        <h4><?=$p_title;?></h4>
-        <?php if (!is_null($p_due_date)){ ?>
-          <p><ins>Due: <?= $p_due_date;?></ins></p>
-        <?php } ?>
-        <p class="p_descrip"><?= $p_descrip;?></p>
-      </td>
-      <td>
-        <div class="task-container">
-          <h5>Task Title</h5>
-          <p class="t_descrip">Description Details...</p>
+      <td id="col_0" class="<?='p_cell '.'color_'.$p_color; ?>">
+        <!-- <button class="del-proj" > - </button> -->
+        <button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button>
+        <div class="p_wrapper">
+          <h4 class="item-title"><?=$p_title;?></h4>
+          <hr />
+          <p class="p_descrip"><?= $p_descrip;?></p>
+          <!-- <hr /> -->
+          <?php if (!is_null($p_due_date)){ ?>
+            <p class="due-txt"><ins>Due: <?= $p_due_date;?></ins></p>
+          <?php } ?>
         </div>
-        <div class="task-container">
-          <h5>Task Title</h5>
-          <p class="t_descrip">Description Details...</p>
-        </div>
+        <a href="addtask.php?proj_id=<?php echo $p_id; ?>"><button id="white-border" class="task-in-proj button-custom button-primary button-raised button-longshadow-right"><span><i class="fa fa-plus"></i> Add Task</span></button></a>
+        <!-- <button id="white-border" class="task-in-proj button-custom button-primary button-raised button-longshadow-right"><span><i class="fa fa-plus"></i> Add Task</span></button> -->
+        <!-- <button class="button button-border button-primary task-in-proj" style="vertical-align:middle" ><span>+ Add Task</span></button> -->
+
+
+
       </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="col_1">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 1){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+          <?php
+            unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
+      <td id="col_2">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 2){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+          <?php
+            unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
+      <td id="col_3">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 3){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+            <?php unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
+      <td id="col_4">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 4){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+            <?php unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
+      <td id="col_5">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 5){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+            <?php unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
+      <td id="col_6">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 6){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+            <?php unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
+      <td id="col_7">
+        <?php foreach($proj_tasks as $key => $task){
+          if($task["col"] == 7){
+
+            if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
+              $t_due_date = NULL;
+            }else{
+              $date = date_create($task["due_date"]);
+              $t_due_date = date_format($date, 'F jS, Y');
+            }
+            $t_color = $task["color"];
+            $t_title = $task["title"];
+            $t_descrip = $task["descrip"];
+
+          ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+              <div class="t_wrapper">
+                <h4 class="item-title"><?=$t_title;?></h4>
+                <hr />
+                <p class="t_descrip"><?=$t_descrip?></p>
+                <?php if (!is_null($t_due_date)){ ?>
+                  <p class="due-txt"><ins>Due: <?= $t_due_date;?></ins></p>
+                <?php } ?>
+              </div>
+            </div>
+
+            <?php unset($proj_tasks[$key]);
+          }
+        }
+        ?>
+      </td>
     </tr>
 <?php	}
 ?>

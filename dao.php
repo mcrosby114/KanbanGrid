@@ -1,18 +1,18 @@
 <?php
 class Dao {
   #For BSU WebDev MySQL
-  // private $host = 'localhost';
-  // private $port = 3306;
-  // private $username = 'mcrosby';
-  // private $password = 'password';
-  // private $dbname = 'mcrosby';
+  private $host = 'localhost';
+  private $port = 3306;
+  private $username = 'mcrosby';
+  private $password = 'password';
+  private $dbname = 'mcrosby';
 
   #For home testing with MAMP
-  private $host = "localhost";
-  private $port = 3308;
-  private $username = "root";
-  private $password = "root";
-  private $dbname = "mcrosby";
+  // private $host = "localhost";
+  // private $port = 3308;
+  // private $username = "root";
+  // private $password = "root";
+  // private $dbname = "mcrosby";
 
   private function getConnection() {
     try {
@@ -118,6 +118,41 @@ class Dao {
   public function getProjects($user_id) {
     $conn = $this->getConnection();
     $stmt = $conn->prepare("SELECT * FROM Project WHERE user_id = :user_id");
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
+  public function addTask($column, $title, $user_id, $proj_id, $descrip=NULL, $due_date=NULL, $color=NULL) {
+    if(is_null($due_date)){
+      $conn = $this->getConnection();
+      $stmt = $conn->prepare("INSERT INTO Task (col, color, title, descrip, user_id, proj_id)
+      values (:col, :color, :title, :descrip, :user_id, :proj_id)");
+      $stmt->bindParam(':col', $column);
+      $stmt->bindParam(':color', $color);
+      $stmt->bindParam(':title', $title);
+      $stmt->bindParam(':descrip', $descrip);
+      $stmt->bindParam(':user_id', $user_id);
+      $stmt->bindParam(':proj_id', $proj_id);
+      $stmt->execute();
+    }else{
+      $conn = $this->getConnection();
+      $stmt = $conn->prepare("INSERT INTO Task (col, due_date, color, title, descrip, user_id, proj_id)
+      values (:col, :due_date, :color, :title, :descrip, :user_id, :proj_id)");
+      $stmt->bindParam(':col', $column);
+      $stmt->bindParam(':due_date', $due_date);
+      $stmt->bindParam(':color', $color);
+      $stmt->bindParam(':title', $title);
+      $stmt->bindParam(':descrip', $descrip);
+      $stmt->bindParam(':user_id', $user_id);
+      $stmt->bindParam(':proj_id', $proj_id);
+      $stmt->execute();
+    }
+  }
+
+  public function getTasks($user_id) {
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("SELECT * FROM Task WHERE user_id = :user_id");
     $stmt->bindParam(":user_id", $user_id);
     $stmt->execute();
     return $stmt->fetchAll();
