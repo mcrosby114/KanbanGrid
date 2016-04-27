@@ -41,7 +41,7 @@
       <span id="logotxt">KanbanGrid</span></a>
       <ul id="menubar">
         <li><a class="headlink" href="addproj.php">+ Add Project</a></li>
-        <li><a class="headlink" href="addtask.php">+ Add Task</a></li>
+        <li><a class="headlink" href="">Settings</a></li>
         <li><a class="headlink signin_link" href="logout.php">Log Out</a></li>
       </ul>
   <?php } else { ?>

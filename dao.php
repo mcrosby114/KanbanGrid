@@ -121,6 +121,17 @@ class Dao {
     }
   }
 
+  public function deleteProject($proj_id){
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("DELETE FROM Project WHERE id = :proj_id");
+    $stmt->bindParam(":proj_id", $proj_id);
+    $stmt->execute();
+
+    $stmt2 = $conn->prepare("DELETE FROM Task WHERE proj_id = :proj_id");
+    $stmt2->bindParam(":proj_id", $proj_id);
+    $stmt2->execute();
+  }
+
   public function getProjects($user_id) {
     $conn = $this->getConnection();
     $stmt = $conn->prepare("SELECT * FROM Project WHERE user_id = :user_id");
@@ -154,6 +165,13 @@ class Dao {
       $stmt->bindParam(':proj_id', $proj_id);
       $stmt->execute();
     }
+  }
+
+  public function deleteTask($task_id){
+    $conn = $this->getConnection();
+    $stmt = $conn->prepare("DELETE FROM Task WHERE id = :task_id");
+    $stmt->bindParam(":task_id", $task_id);
+    $stmt->execute();
   }
 
   public function getTasks($user_id) {

@@ -49,7 +49,7 @@
     <tr>
       <td id="col_0" class="<?='p_cell '.'color_'.$p_color; ?>">
         <!-- <button class="del-proj" > - </button> -->
-        <button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button>
+        <a href="delete_proj.php?proj_id=<?php echo $p_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
         <div class="p_wrapper">
           <h4 class="item-title"><?=$p_title;?></h4>
           <hr />
@@ -59,7 +59,7 @@
             <p class="due-txt"><ins>Due: <?= $p_due_date;?></ins></p>
           <?php } ?>
         </div>
-        <a href="addtask.php?proj_id=<?php echo $p_id; ?>"><button id="white-border" class="task-in-proj button-custom button-primary button-raised button-longshadow-right"><span><i class="fa fa-plus"></i> Add Task</span></button></a>
+            <a href="addtask.php?proj_id=<?php echo $p_id; ?>"><button id="white-border" class="task-in-proj button-custom button-primary button-raised button-longshadow-right"><span><i class="fa fa-plus"></i> Add Task</span></button></a>
         <!-- <button id="white-border" class="task-in-proj button-custom button-primary button-raised button-longshadow-right"><span><i class="fa fa-plus"></i> Add Task</span></button> -->
         <!-- <button class="button button-border button-primary task-in-proj" style="vertical-align:middle" ><span>+ Add Task</span></button> -->
 
@@ -69,7 +69,7 @@
       <td id="col_1">
         <?php foreach($proj_tasks as $key => $task){
           if($task["col"] == 1){
-
+            $task_id = $task["id"];
             if(is_null($task["due_date"])){    //Prepare to print the project's info in first table column
               $t_due_date = NULL;
             }else{
@@ -81,6 +81,7 @@
             $t_descrip = $task["descrip"];
 
           ?><div class="<?='task-container '.'color_'.$t_color; ?>">
+            <a href="delete_task.php?task_id=<?php echo $task_id; ?>"><button id="del-button-white-border" class="button button-caution button-box button-tiny button-longshadow-right del-proj"><i class="fa fa-minus"></i></button></a>
               <div class="t_wrapper">
                 <h4 class="item-title"><?=$t_title;?></h4>
                 <hr />
