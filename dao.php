@@ -1,18 +1,18 @@
 <?php
 class Dao {
   #For BSU WebDev MySQL
-  private $host = 'localhost';
-  private $port = 3306;
-  private $username = 'mcrosby';
-  private $password = 'password';
-  private $dbname = 'mcrosby';
+  // private $host = 'localhost';
+  // private $port = 3306;
+  // private $username = 'mcrosby';
+  // private $password = 'password';
+  // private $dbname = 'mcrosby';
 
   #For home testing with MAMP
-  // private $host = "localhost";
-  // private $port = 3308;
-  // private $username = "root";
-  // private $password = "root";
-  // private $dbname = "mcrosby";
+  private $host = "localhost";
+  private $port = 3308;
+  private $username = "root";
+  private $password = "root";
+  private $dbname = "mcrosby";
 
   private function getConnection() {
     try {
