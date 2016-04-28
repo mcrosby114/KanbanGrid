@@ -3,6 +3,8 @@
   require_once ("dao.php");
 	$user_id = $_SESSION["userid"];
 
+  date_default_timezone_set('America/Boise');
+
   function array_orderby() {
     $args = func_get_args();
     $data = array_shift($args);
