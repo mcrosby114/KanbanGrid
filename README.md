@@ -1,8 +1,8 @@
-# KanbanGrid website
+# KanbanGrid web application
 ##### (old domain name: http://www.kanbangrid.com/)
 
 ## Description:
-A productivity organizer for visualizing and adjusting your projects and tasks for the week. 
+A productivity organizer for visualizing and adjusting your projects and tasks for the week.
 
 Each day of the week gets a column, and each area/project gets a row. The user can then input tasks pertaining to each area/project – represented as text in moveable boxes. Then each task box can be dragged and dropped as things change.
 
@@ -21,4 +21,4 @@ The idea is modeled after the [“Kanban” workflow:](https://en.wikipedia.org/
 * Uses PHP data access object (a design pattern) for database operations
 * Customizable grid layout, task boxes, colors, checkboxes
 * Product branding, content pages
-* JQuery enhancements: image gallery, tooltips, fading effects, AJAX data loading 
+* JQuery enhancements: image gallery, tooltips, fading effects, AJAX data loading
