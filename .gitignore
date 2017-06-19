@@ -1,4 +1,3 @@
 .DS_Store
-/styles/external/*.js
-/scripts/external/*.css
-/scripts/external/*.scss
+'/styles/external/**'
+'/scripts/external/**'
