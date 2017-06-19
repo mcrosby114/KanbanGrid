@@ -1,23 +1,23 @@
 <?php
 class Dao {
-  #For BSU WebDev MySQL
-  private $host = 'localhost';
-  private $port = 3306;
-  private $username = 'mcrosby';
-  private $password = 'password';
-  private $dbname = 'mcrosby';
 
-  #For home testing with MAMP
-  // private $host = "localhost";
-  // private $port = 3308;
-  // private $username = "root";
-  // private $password = "root";
-  // private $dbname = "mcrosby";
+  private $host = '127.0.0.1';
+  private $port = 3306;
+  private $charset = 'utf8';
+  private $username = 'crosbyPHP';
+  private $password = 'password';
+  private $sslCA = '/private/etc/mysql/ssl/mysql-ca.pem';
+  private $sslCERT = '/private/etc/mysql/ssl/mysql-server-cert.pem';
+  private $sslKEY = '/private/etc/mysql/ssl/mysql-server-key.pem';
+  private $dbname = 'mcrosby';
 
   private function getConnection() {
     try {
-      $conn = new PDO("mysql:host={$this->host};port={$this->port};dbname={$this->dbname};", "$this->username", "$this->password");
+      $conn = new PDO("mysql:host={$this->host};port={$this->port};dbname={$this->dbname};charset={$this->charset}", "$this->username", "$this->password");
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      // $conn->setAttribute(PDO::MYSQL_ATTR_SSL_CA, "$this->sslCA");
+      // $conn->setAttribute(PDO::MYSQL_ATTR_SSL_CERT, "$this->sslCERT");
+      // $conn->setAttribute(PDO::MYSQL_ATTR_SSL_KEY, "$this->sslKEY");
     } catch (PDOException $e) {
       echo 'Connection failed: ' . $e->getMessage();
     }
