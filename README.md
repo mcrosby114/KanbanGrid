@@ -1,9 +1,5 @@
 # KanbanGrid web application
 
-##### https://mcrosby114.github.io/KanbanGrid/
-##### https://github.com/mcrosby114/KanbanGrid
-##### (old domain name: http://www.kanbangrid.com/)
-
 ## Description:
 A productivity tool to model your workflow as a grid of projects for the week.
 
@@ -25,3 +21,7 @@ The idea is modeled after the [“Kanban” workflow](https://en.wikipedia.org/w
 * Customizable grid layout, task boxes, colors, checkboxes
 * Product branding, content pages
 * JQuery enhancements: image gallery, tooltips, fading effects, AJAX data loading
+
+##### https://mcrosby114.github.io/KanbanGrid/
+##### https://github.com/mcrosby114/KanbanGrid
+##### (old domain name: http://www.kanbangrid.com/)
