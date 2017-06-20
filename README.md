@@ -1,4 +1,4 @@
-# KanbanGrid web app
+# KanbanGrid web application
 
 ##### https://mcrosby114.github.io/KanbanGrid/
 ##### https://github.com/mcrosby114/KanbanGrid
