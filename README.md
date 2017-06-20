@@ -1,4 +1,7 @@
 # KanbanGrid web application
+
+##### https://mcrosby114.github.io/KanbanGrid/
+##### https://github.com/mcrosby114/KanbanGrid
 ##### (old domain name: http://www.kanbangrid.com/)
 
 ## Description:
@@ -8,7 +11,7 @@ Each day of the week gets a column, and each area/project gets a row. The user c
 
 The idea is modeled after the [“Kanban” workflow:](https://en.wikipedia.org/wiki/Kanban)
 
-## Features:
+## Highlights:
 * Written purely with PHP, HTML, CSS, Javascript, MySQL (no frameworks)
 * Designed database schema with full CRUD support for accounts, projects, tasks
 * Designed with UX in mind (e.g., input validation, persistent and context-aware navigation)
